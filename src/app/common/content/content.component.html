@@ -11,7 +11,7 @@
 
                             <body>
                                 <tr
-                                    *ngFor="let newss of news | async |filter:term | paginate: { itemsPerPage: 5, currentPage: p } ">
+                                    *ngFor="let newss of news | async  | paginate: { itemsPerPage: 5, currentPage: p } ">
                                     <td>
                                         <div class="blog-box row">
                                             <div class="col-md-4">
@@ -26,8 +26,8 @@
 
                                             <div class="blog-meta big-meta col-md-8">
                                                 <h4><a href="tech-single.html"
-                                                        title="{{newss.title}}">{{newss.title}}</a></h4>
-                                                <p>{{newss.desrc}}</p>
+                                                        title="{{newss.title}}">{{newss.titlte}}</a></h4>
+                                                <p>{{newss.descr}}</p>
                                                 <small class="firstsmall"><a class="bg-orange"
                                                         href="tech-category-01.html" title="">Gadgets</a></small>
                                                 <small><a href="tech-single.html"
@@ -41,11 +41,17 @@
                                     </td>
                                 </tr>
                             </body>
-                            <td>
-                                <ul class="pagination">
-                                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
-                                </ul>
-                            </td>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <nav aria-label="Page navigation">
+                                        <ul class="pagination justify-content-start">
+                                            <li class="page-item">
+                                                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
                         </table>
                     </div>
                 </div>
@@ -83,32 +89,18 @@
                         <h2 class="widget-title">Popular Posts</h2>
                         <div class="blog-list-widget">
                             <div class="list-group">
-                                <a href="tech-single.html"
-                                    class="list-group-item list-group-item-action flex-column align-items-start">
-                                    <div class="w-100 justify-content-between">
-                                        <img src="assets/upload/tech_blog_08.jpg" alt="" class="img-fluid float-left">
-                                        <h5 class="mb-1">5 Beautiful buildings you need..</h5>
-                                        <small>12 Jan, 2016</small>
-                                    </div>
-                                </a>
-
-                                <a href="tech-single.html"
-                                    class="list-group-item list-group-item-action flex-column align-items-start">
-                                    <div class="w-100 justify-content-between">
-                                        <img src="assets/upload/tech_blog_01.jpg" alt="" class="img-fluid float-left">
-                                        <h5 class="mb-1">Let's make an introduction for..</h5>
-                                        <small>11 Jan, 2016</small>
-                                    </div>
-                                </a>
-
-                                <a href="tech-single.html"
-                                    class="list-group-item list-group-item-action flex-column align-items-start">
-                                    <div class="w-100 last-item justify-content-between">
-                                        <img src="assets/upload/tech_blog_03.jpg" alt="" class="img-fluid float-left">
-                                        <h5 class="mb-1">Did you see the most beautiful..</h5>
-                                        <small>07 Jan, 2016</small>
-                                    </div>
-                                </a>
+                                <tr
+                                    *ngFor="let viewtops of viewtop | async ">
+                                    <a href="tech-single.html"
+                                        class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <div class="w-100 justify-content-between">
+                                            <img src="assets/upload/tech_blog_08.jpg" alt=""
+                                                class="img-fluid float-left">
+                                            <h5 class="mb-1">{{viewtops.title}} dededed</h5>
+                                            <small>{{viewtops.date_create}}</small>
+                                        </div>
+                                    </a>
+                                </tr>
                             </div>
                         </div><!-- end blog-list -->
                     </div><!-- end widget -->

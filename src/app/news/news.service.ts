@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class NewsService {
   private baseUrl = "http://localhost:8080/News24h/api/news";
-  private baseUrl1 = "http://localhost:8080/News24h/api/news/viewtop";
+  private baseUrl1 = "http://localhost:8080/News24h/api/news/topview";
   constructor(private http: HttpClient) { }
 
   getById(id: number): Observable<any> {

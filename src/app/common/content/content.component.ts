@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 export class ContentComponent implements OnInit {
 
   news: Observable<News[]>;
-
+  viewtop: Observable<News[]>;
+  p:number=1;
   constructor(private newsService : NewsService,private router: Router) { }
 
   ngOnInit(): void {
@@ -20,6 +21,9 @@ export class ContentComponent implements OnInit {
   }
   reloadData() {
     this.news = this.newsService.getAll();
+    this.viewtop=this.newsService.getTopView();
+    this.newsService.getAll().subscribe(value => console.log(value),error => console.log(error));
+    this.newsService.getTopView().subscribe(value => console.log(value),error => console.log(error))
 
   }
   deleteStudent(id: number) {

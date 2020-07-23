@@ -2,7 +2,7 @@ export class News{
     id: number;
     title: string;
     body: string;
-    desrc :string;
+    descr :string;
     keywords: string;
     date_create: string;
     date_update: string;
